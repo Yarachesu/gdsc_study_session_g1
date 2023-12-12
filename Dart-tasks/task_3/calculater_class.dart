@@ -40,5 +40,10 @@ class Calculater {
 
 main() {
   var response = Calculater(num1: 4, num2: 2);
+<<<<<<< HEAD
   response.division();
 }
+=======
+  response.division();      //worked by yared
+}
+>>>>>>> cd343a4756a6b73aa3a81fb1116064bddda6785b
