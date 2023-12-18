@@ -222,7 +222,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   subtitle: Text("hi,surafel how are you?"),
                 ),
-                Padding(
+                Padding(  
                   padding: const EdgeInsets.only(left: 60.0, right: 30),
                   child: Divider(
                     height: 1,
