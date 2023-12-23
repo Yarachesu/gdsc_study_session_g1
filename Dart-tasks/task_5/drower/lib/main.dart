@@ -18,10 +18,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text(
-            "Basics",
-            style: TextStyle(fontSize: 20),
-          ),
+          title:Text("Basics",style:TextStyle(fontSize:20),),
           actions: [
             Icon(Icons.search),
             SizedBox(
@@ -226,7 +223,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   subtitle: Text("hi,surafel how are you?"),
                 ),
-                Padding(
+                Padding(  
                   padding: const EdgeInsets.only(left: 60.0, right: 30),
                   child: Divider(
                     height: 1,
