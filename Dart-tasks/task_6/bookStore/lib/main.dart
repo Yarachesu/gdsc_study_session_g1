@@ -1,10 +1,10 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import "dart:math";
+import 'package:flutter_application_1/defaults.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -13,6 +13,8 @@ class MyApp extends StatefulWidget {
   @override
   State<MyApp> createState() => _MyAppState();
 }
+
+int index = 0;
 
 class _MyAppState extends State<MyApp> {
   List icons = [
@@ -54,62 +56,17 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.white,
-          leading: Icon(
+          leading: const Icon(
             Icons.sort,
             color: Colors.black,
             size: 40,
           ),
-          title: Padding(
-            padding: const EdgeInsets.only(left: 10.0),
+          title: const Padding(
+            padding: EdgeInsets.only(left: 10.0),
             child: Text(
               "GDSC BOOKSTORE",
               style: TextStyle(fontSize: 20, color: Colors.black87),
             ),
-          ),
-        ),
-        bottomNavigationBar: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              SizedBox(
-                width: 30,
-              ),
-              Icon(
-                Icons.save_rounded,
-                size: 30,
-              ),
-              SizedBox(
-                width: 80,
-              ),
-              Icon(
-                Icons.menu_book_outlined,
-                size: 30,
-              ),
-              SizedBox(
-                width: 80,
-              ),
-              Icon(
-                Icons.home,
-                size: 30,
-              ),
-              SizedBox(
-                width: 80,
-              ),
-              Icon(
-                Icons.view_column,
-                size: 30,
-              ),
-              SizedBox(
-                width: 80,
-              ),
-              Icon(
-                Icons.person_2_outlined,
-                size: 30,
-              ),
-              SizedBox(
-                width: 50,
-              )
-            ],
           ),
         ),
         body: SingleChildScrollView(
@@ -122,20 +79,20 @@ class _MyAppState extends State<MyApp> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(right: 30.0, top: 10),
-                      child: Container(
+                      child: SizedBox(
                         height: 50,
                         width: 400,
                         child: Padding(
                           padding: const EdgeInsets.only(left: 20.0),
                           child: TextField(
                             decoration: InputDecoration(
-                              label: Text(
+                              label: const Text(
                                 "Looking for ...",
                               ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              suffixIcon: Icon(
+                              suffixIcon: const Icon(
                                 Icons.search,
                                 size: 30,
                               ),
@@ -144,7 +101,7 @@ class _MyAppState extends State<MyApp> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                       height: 40,
                     ),
@@ -153,15 +110,15 @@ class _MyAppState extends State<MyApp> {
                       height: 50,
                       minWidth: 60,
                       color: Colors.blue[700],
-                      child: Icon(Icons.tune_rounded),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
+                      child: const Icon(Icons.tune_rounded),
                     ),
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Padding(
@@ -177,10 +134,10 @@ class _MyAppState extends State<MyApp> {
                     ),
                     height: 200,
                     width: MediaQuery.of(context).size.width,
-                    child: Column(
+                    child: const Column(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left: 300.0),
+                          padding: EdgeInsets.only(left: 300.0),
                           child: Text(
                             "sep 23,2023",
                           ),
@@ -203,7 +160,7 @@ class _MyAppState extends State<MyApp> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 10.0),
+                                  padding: EdgeInsets.only(top: 10.0),
                                   child: Text(
                                     "Today a reader\n tomorrow a",
                                     style: TextStyle(
@@ -261,8 +218,8 @@ class _MyAppState extends State<MyApp> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20.0),
+              const Padding(
+                padding: EdgeInsets.only(left: 20.0),
                 child: Text(
                   "Catagories",
                   style: TextStyle(
@@ -272,17 +229,17 @@ class _MyAppState extends State<MyApp> {
                   textAlign: TextAlign.left,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 height: 30,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: 5,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: MaterialButton(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -293,9 +250,9 @@ class _MyAppState extends State<MyApp> {
                           children: [
                             //files.icons[index],
                             Icon(icons[index]),
-                            SizedBox(width: 10),
+                            const SizedBox(width: 10),
                             Text(text[index]),
-                            SizedBox(width: 10),
+                            const SizedBox(width: 10),
                           ],
                         ),
                       ),
@@ -303,31 +260,31 @@ class _MyAppState extends State<MyApp> {
                   },
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 10.0),
+              const Padding(
+                padding: EdgeInsets.only(left: 10.0),
                 child: Text(
                   "Recomendation",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 height: 200,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: assetImages.length,
                   itemBuilder: (context, index) {
-                    return Container(
+                    return SizedBox(
                       height: MediaQuery.of(context).size.height,
                       width: 130,
                       child: Column(
                         children: [
-                          Container(
+                          SizedBox(
                             height: 150,
                             child: Image.asset(
                               assetImages[index],
@@ -344,20 +301,20 @@ class _MyAppState extends State<MyApp> {
 
               //second image
 
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 10.0),
+              const Padding(
+                padding: EdgeInsets.only(left: 10.0),
                 child: Text(
                   "New",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 height: 200,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
@@ -366,12 +323,12 @@ class _MyAppState extends State<MyApp> {
                     final random = Random();
                     final selectedIndex = random.nextInt(6);
 
-                    return Container(
+                    return SizedBox(
                       height: MediaQuery.of(context).size.height,
                       width: 130,
                       child: Column(
                         children: [
-                          Container(
+                          SizedBox(
                             height: 150,
                             child: Image.asset(
                               assetImages[selectedIndex],
@@ -388,32 +345,35 @@ class _MyAppState extends State<MyApp> {
 
               //third image
 
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 10.0),
+              const Padding(
+                padding: EdgeInsets.only(left: 10.0),
                 child: Text(
                   "Trending",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 height: 200,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: assetImages.length,
                   itemBuilder: (context, index) {
                     final randomIndex = Random().nextInt(assetImages.length);
-                    return Container(
+                    return SizedBox(
                       height: MediaQuery.of(context).size.height,
                       width: 130,
                       child: Column(
                         children: [
                           Container(
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                            ),
                             height: 150,
                             child: Image.asset(
                               assetImages[randomIndex],
@@ -429,6 +389,36 @@ class _MyAppState extends State<MyApp> {
               ),
             ],
           ),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: index,
+          selectedItemColor: Colors.amber,
+          unselectedItemColor: Colors.black38,
+          //backgroundColor: Colors.blue[100],
+          type: BottomNavigationBarType.shifting,
+          onTap: (value) {
+            setState(() {
+              index = value;
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(theem.icons[0]),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(theem.icons[1]),
+              label: 'Search',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(theem.icons[2]),
+              label: 'Profile',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(theem.icons[3]),
+              label: 'share',
+            ),
+          ],
         ),
       ),
     );
