@@ -2,6 +2,9 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/defaults.dart';
+import 'package:flutter_application_1/new.dart';
+import 'package:flutter_application_1/trailing.dart';
+import 'package:flutter_application_1/recomendation.dart';
 
 void main() {
   runApp(const MyApp());
@@ -48,6 +51,15 @@ class _MyAppState extends State<MyApp> {
     "History",
     "Philosophy",
   ];
+  int count = 0;
+  List trendingImages = [
+    "assets/d.jpg",
+    "assets/bc.jpg",
+    "assets/c.jpg",
+    "assets/a.jpg",
+  ];
+
+  final randomIndex = Random().nextInt(6);
 
   @override
   Widget build(BuildContext context) {
@@ -132,86 +144,86 @@ class _MyAppState extends State<MyApp> {
                       borderRadius: BorderRadius.circular(10),
                       color: Colors.blue[700],
                     ),
-                    height: 200,
+                    height: 250,
                     width: MediaQuery.of(context).size.width,
                     child: const Column(
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(left: 300.0),
+                          padding: EdgeInsets.only(left: 200.0),
                           child: Text(
                             "sep 23,2023",
                           ),
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            SizedBox(
-                              width: 20,
-                            ),
-                            Icon(
-                              Icons.pause,
-                              size: 40,
-                              color: Colors.white,
-                            ),
-                            SizedBox(
-                              width: 20,
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(top: 10.0),
-                                  child: Text(
+                        Padding(
+                          padding: EdgeInsets.only(top: 40.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              SizedBox(
+                                width: 20,
+                              ),
+                              Icon(
+                                Icons.pause,
+                                size: 40,
+                                color: Colors.white,
+                              ),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
                                     "Today a reader\n tomorrow a",
                                     style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.w300,
                                     ),
                                   ),
-                                ),
-                                Text(
-                                  "LEADER",
-                                  style: TextStyle(
-                                      fontSize: 40,
-                                      fontWeight: FontWeight.w900,
-                                      color: Colors.white),
-                                ),
-                                Row(
-                                  children: [
-                                    Icon(
-                                      Icons.save_outlined,
-                                      size: 30,
-                                      color: Colors.white,
-                                    ),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    Icon(
-                                      Icons.bookmark_border_outlined,
-                                      color: Colors.white,
-                                      size: 30,
-                                    ),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    Icon(
-                                      Icons.share,
-                                      size: 30,
-                                      color: Colors.white,
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              width: 20,
-                            ),
-                            Icon(
-                              Icons.pause,
-                              size: 40,
-                              color: Colors.white,
-                            ),
-                          ],
+                                  Text(
+                                    "LEADER",
+                                    style: TextStyle(
+                                        fontSize: 40,
+                                        fontWeight: FontWeight.w900,
+                                        color: Colors.white),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Icon(
+                                        Icons.save_outlined,
+                                        size: 30,
+                                        color: Colors.white,
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Icon(
+                                        Icons.bookmark_border_outlined,
+                                        color: Colors.white,
+                                        size: 30,
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Icon(
+                                        Icons.share,
+                                        size: 30,
+                                        color: Colors.white,
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              Icon(
+                                Icons.pause,
+                                size: 40,
+                                color: Colors.white,
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
@@ -273,22 +285,39 @@ class _MyAppState extends State<MyApp> {
               const SizedBox(
                 height: 10,
               ),
-              SizedBox(
+              Container(
                 height: 200,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20))),
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: assetImages.length,
                   itemBuilder: (context, index) {
-                    return SizedBox(
+                    return Container(
                       height: MediaQuery.of(context).size.height,
                       width: 130,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
                       child: Column(
                         children: [
-                          SizedBox(
+                          Container(
                             height: 150,
-                            child: Image.asset(
-                              assetImages[index],
-                              fit: BoxFit.fitHeight,
+                            decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20))),
+                            child: Hero(
+                              tag: "location-imager-$index",
+                              child: MaterialButton(
+                                onPressed: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) =>
+                                          Recomendation(numb: index)));
+                                },
+                                child: Image.asset(
+                                  assetImages[index],
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
                             ),
                           ),
                           Text(imageName[index]),
@@ -318,10 +347,10 @@ class _MyAppState extends State<MyApp> {
                 height: 200,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: assetImages.length,
+                  itemCount: theem.newImages.length,
                   itemBuilder: (context, index) {
-                    final random = Random();
-                    final selectedIndex = random.nextInt(6);
+                    // final random = Random();
+                    // final selectedIndex = random.nextInt(6);
 
                     return SizedBox(
                       height: MediaQuery.of(context).size.height,
@@ -330,12 +359,21 @@ class _MyAppState extends State<MyApp> {
                         children: [
                           SizedBox(
                             height: 150,
-                            child: Image.asset(
-                              assetImages[selectedIndex],
-                              fit: BoxFit.fitHeight,
+                            child: MaterialButton(
+                              onPressed: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => New(numb: index)));
+                              },
+                              child: Hero(
+                                tag: "location-imagen-$index",
+                                child: Image.asset(
+                                  theem.newImages[index],
+                                  fit: BoxFit.fitHeight,
+                                ),
+                              ),
                             ),
                           ),
-                          Text(imageName[selectedIndex]),
+                          Text(imageName[index]),
                         ],
                       ),
                     );
@@ -362,9 +400,10 @@ class _MyAppState extends State<MyApp> {
                 height: 200,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: assetImages.length,
+                  itemCount: trendingImages.length,
                   itemBuilder: (context, index) {
-                    final randomIndex = Random().nextInt(assetImages.length);
+                    count = index;
+                    //final randomIndex = Random().nextInt(assetImages.length);
                     return SizedBox(
                       height: MediaQuery.of(context).size.height,
                       width: 130,
@@ -375,12 +414,21 @@ class _MyAppState extends State<MyApp> {
                               shape: BoxShape.circle,
                             ),
                             height: 150,
-                            child: Image.asset(
-                              assetImages[randomIndex],
-                              fit: BoxFit.fitHeight,
+                            child: MaterialButton(
+                              onPressed: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => Reading(num: index)));
+                              },
+                              child: Hero(
+                                tag: "location-imaget-$index",
+                                child: Image.asset(
+                                  trendingImages[index],
+                                  fit: BoxFit.fitHeight,
+                                ),
+                              ),
                             ),
                           ),
-                          Text(imageName[randomIndex]),
+                          Text(theem.trendingName[index]),
                         ],
                       ),
                     );
