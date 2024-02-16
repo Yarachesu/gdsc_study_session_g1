@@ -3,6 +3,7 @@ import "package:flutter/material.dart";
 import "package:flutter_application_1/defaults.dart";
 
 import "package:flutter_application_1/main.dart";
+import "package:provider/provider.dart";
 
 class New extends StatefulWidget {
   const New({super.key, required this.numb});
@@ -84,10 +85,14 @@ class _NewState extends State<New> {
                 color: Color.fromARGB(255, 236, 236, 236),
                 child: Column(
                   children: [
-                    Text(
-                      theem.recomendationName[widget.numb],
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                    Consumer(
+                      builder: (context, value, child) {
+                        return Text(
+                          theem.recomendationName[widget.numb],
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.w600),
+                        );
+                      },
                     ),
                     SizedBox(
                       height: 10,
@@ -230,9 +235,13 @@ class _NewState extends State<New> {
               alignment: Alignment.bottomLeft,
               child: Padding(
                 padding: const EdgeInsets.only(left: 30.0),
-                child: Text(
-                  theem.recomendationbookinfo[widget.numb],
-                  style: TextStyle(fontWeight: FontWeight.w300),
+                child: Consumer(
+                  builder: (context, value, child) {
+                    return Text(
+                      theem.recomendationbookinfo[widget.numb],
+                      style: TextStyle(fontWeight: FontWeight.w300),
+                    );
+                  },
                 ),
               ),
             ),
