@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class user {
   String title;
   String date;
@@ -9,4 +11,9 @@ List<user> users = [
   user("ui design", "April 29,2023"),
   user("uxfdsd", "june 23,2012"),
   user("ssddbe", "augest 9,2002"),
+];
+List<Color> containercolor = [
+  Colors.green,
+  Colors.red,
+  Colors.brown,
 ];

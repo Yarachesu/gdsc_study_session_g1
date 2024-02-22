@@ -94,5 +94,6 @@ class theem with ChangeNotifier {
     " Viktor E. Frankl, the author of Mans Search for Meaning, was an Austrian neurologist and psychiatrist who survived the Holocaust. His experiences in the concentration camps deeply influenced his understanding of human psychology and led him to develop logotherapy. Frankl's book has had a lasting impact on readers and continues to be widely regarded as a seminal work in the fields of psychology and existential philosophy.",
     "Alex Haley, the author of Roots, was an American writer known for his work on African American history and genealogy.\n He conducted extensive research into his own family history, which inspired him to write Roots.\n The book was a groundbreaking work that brought attention to the history of slavery in America and its enduring legacy.",
   ];
+
   notifyListeners();
 }
