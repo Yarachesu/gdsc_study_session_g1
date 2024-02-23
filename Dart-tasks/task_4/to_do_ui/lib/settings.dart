@@ -20,7 +20,7 @@ class settings with ChangeNotifier {
   bool get darktheem => _darktheme;
 
   _initailizeprefs() async {
-    if (_prefs == Null) {
+    if (_prefs == null) {
       _prefs = await SharedPreferences.getInstance();
     }
   }
@@ -33,12 +33,13 @@ class settings with ChangeNotifier {
 
   _saveprefs() async {
     await _initailizeprefs();
-    _darktheme = await _prefs!.setBool("darkthemee", _darktheme);
+    await _prefs?.setBool("darkThemee", _darktheme);
     notifyListeners();
   }
 
   void toggletheme() {
     _darktheme = !_darktheme;
+    _saveprefs();
     notifyListeners();
   }
 }
